@@ -21,26 +21,28 @@ Edit jimbo_config.py. There is lots of help in that file in the comments.
 INSTALLING
 ----------
 
-Run the following:
+After a git clone somewhere on your server, run the following:
 ```
-sudo cp jimbo_config.py /usr/local/sbin/
-sudo cp jimbo.py /usr/local/sbin/
-sudo cp pyDaemon.py /usr/local/sbin/
-sudo chmod u+x /usr/local/sbin/jimbo.py
+sudo ln -s jimbo_config.py /usr/local/sbin/jimbo_config.py
+sudo ln -s jimbo.py /usr/local/sbin/jimbo.py
+sudo ln -s pyDaemon.py /usr/local/sbin/pyDaemon.py
+sudo chmod u+x jimbo.py
 
-sudo cp jimbo /etc/init.d/
+sudo ln -s jimbo /etc/init.d/jimbo
 ```
 You then need to make sure the init script gets runs when your server starts and stop.
 
-On Gentoo 'sudo rc-update add jimbo default'.
+On most other Linux distributions you need to create two symlinks:
+- sudo ln -s /etc/init.d/jimbo /etc/rc3.d/S99jimbo
+- sudo ln -s /etc/init.d/jimbo /etc/rc3.d/K99jimbo
 
-On Redhat: sudo cp redhat-jimbo /etc/init.d/jimbo
+On Gentoo : 
+- sudo rc-update add jimbo default
+
+On Redhat: 
+- sudo cp redhat-jimbo /etc/init.d/jimbo
 - /sbin/service jimbo start
 - /sbin/service jimbo stop
-
-On most other Linux distributions you need to create two symlinks:
-- from /etc/rc3.d/S99jimbo to /etc/init.d/jimbo
-- from /etc/rc3.d/K99jimbo to /etc/init.d/jimbo.
 
 RUNNING
 -------
