@@ -33,16 +33,22 @@ sudo ln -s jimbo /etc/init.d/jimbo
 You then need to make sure the init script gets runs when your server starts and stop.
 
 On most other Linux distributions you need to create two symlinks:
-- sudo ln -s /etc/init.d/jimbo /etc/rc3.d/S99jimbo
-- sudo ln -s /etc/init.d/jimbo /etc/rc3.d/K99jimbo
+```
+sudo ln -s /etc/init.d/jimbo /etc/rc3.d/S99jimbo
+sudo ln -s /etc/init.d/jimbo /etc/rc3.d/K99jimbo
+```
 
 On Gentoo : 
-- sudo rc-update add jimbo default
+```
+sudo rc-update add jimbo default
+```
 
 On Redhat: 
-- sudo cp redhat-jimbo /etc/init.d/jimbo
-- /sbin/service jimbo start
-- /sbin/service jimbo stop
+```
+sudo cp redhat-jimbo /etc/init.d/jimbo
+/sbin/service jimbo start
+/sbin/service jimbo stop
+```
 
 RUNNING
 -------
