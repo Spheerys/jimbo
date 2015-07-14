@@ -8,10 +8,10 @@ There are also some commands available - message 'help' to the bot for details
 
 WHAT'S NEW
 ----------
-0.2.3: Initial project forked on github by Spheerys.
-0.2.2: Added RedHat startup script. Thanks Ken Staton.
-0.2.1: Now runs properly as a daemon.
-0.2: Added auto-reconnect, and using a class internally.
+- 0.2.3: Initial project forked on github by Spheerys.
+- 0.2.2: Added RedHat startup script. Thanks Ken Staton.
+- 0.2.1: Now runs properly as a daemon.
+- 0.2: Added auto-reconnect, and using a class internally.
 
 CONFIGURING
 -----------
@@ -22,14 +22,14 @@ INSTALLING
 ----------
 
 Run the following:
-
+```
 sudo cp jimbo_config.py /usr/local/sbin/
 sudo cp jimbo.py /usr/local/sbin/
 sudo cp pyDaemon.py /usr/local/sbin/
 sudo chmod u+x /usr/local/sbin/jimbo.py
 
 sudo cp jimbo /etc/init.d/
-
+```
 You then need to make sure the init script gets runs when your server starts and stop.
 
 On Gentoo 'sudo rc-update add jimbo default'.
