@@ -21,7 +21,7 @@ Edit jimbo_config.py. There is lots of help in that file in the comments.
 INSTALLING
 ----------
 
-After a git clone somewhere on your server, run the following in root :
+After a git clone somewhere (your base directory) on your server, run the following in root :
 ```
 chmod u+x jimbo.py
 chmod u+x jimbo
@@ -64,6 +64,17 @@ When JIMBo starts up, it will ask to be your friend by subscribing to CONTACT. T
 JIMBo will also authorize everyone in AUTHORIZED_CONTACTS to view it's status.
 
 If it gets disconnected it will try and re-connect automatically every five seconds.
+
+
+AFTER A GIT PULL
+----------------
+You have to recreate the links to the modified files.
+Example for jimbo.py, from your base directory :
+```
+git pull
+rm /usr/local/sbin/jimbo.py && ln jimbo.py /usr/local/sbin/jimbo.py
+/etc/init.d/jimbo stop; pkill jimbo; /etc/init.d/jimbo start
+```
 
 ADDING COMMANDS
 ---------------
