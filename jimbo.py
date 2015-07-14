@@ -68,7 +68,8 @@ class Jimbo(xmpp.Client):
         'Load average'
 
         load_average = ' '.join( [ str(x) for x in os.getloadavg() ] )
-        self.send_presence(sender, load_average)
+        # self.send_presence(sender, load_average)
+        self.sendPresence(pto=sender, pstatus="Busy studying XMPP", pshow="dnd")
 
     def is_time_to_monitor(self):
 
