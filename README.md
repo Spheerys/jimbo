@@ -1,11 +1,6 @@
 JIMBO 0.2.3
 ===========
-Jabber
-Instant
-Monitoring
-BOt
-
-
+Original source page of the project : http://www.darkcoding.net/software/jimbo/
 
 JIMBO runs on your server, connects to a Jabber server, and adds you as its friend. This way you know your server is up.
 
@@ -13,7 +8,7 @@ There are also some commands available - message 'help' to the bot for details
 
 WHAT'S NEW
 ----------
-0.2.3: Initial project forked by Spheerys
+0.2.3: Initial project forked on github by Spheerys 
 0.2.2: Added RedHat startup script. Thanks Ken Staton.
 0.2.1: Now runs properly as a daemon.
 0.2: Added auto-reconnect, and using a class internally.
