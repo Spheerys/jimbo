@@ -63,6 +63,7 @@ class Jimbo(xmpp.Client):
 
         load_average = ' '.join( [ str(x) for x in os.getloadavg() ] )
         self.send_message(sender, load_average)
+        self.send_status(sender, load_average)
 
     def is_time_to_monitor(self):
 
@@ -70,6 +71,7 @@ class Jimbo(xmpp.Client):
 
         if not self.monitor_last_run or now > self.monitor_last_run + FIVE_MINUTES:
            self.monitor_last_run = now
+           # self.send_status(sender, load_average)
            return True
 
         return False
