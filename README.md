@@ -9,6 +9,7 @@ There are also some commands available - message 'help' to the bot for details
 WHAT'S NEW
 ----------
 0.2.3: Initial project forked on github by Spheerys.
+
 0.2.2: Added RedHat startup script. Thanks Ken Staton.
 0.2.1: Now runs properly as a daemon.
 0.2: Added auto-reconnect, and using a class internally.
