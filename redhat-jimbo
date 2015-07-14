@@ -1,0 +1,87 @@
+#!/bin/bash
+#
+# Startup script for jimbo
+#
+# chkconfig: - 99 3
+# description: jimbo is a small daemon which is intended to run on \
+#              end user systems. It provides a jabber monitor.
+# processname: jimbo
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Source function library.
+if [ -f /etc/init.d/functions ] ; then
+ . /etc/init.d/functions
+elif [ -f /etc/rc.d/init.d/functions ] ; then
+ . /etc/rc.d/init.d/functions
+else
+ exit 0
+fi
+
+# Some definitions.
+jimbo=/usr/local/sbin/jimbo.py
+prog=jimbo
+OPTIONS=""
+RETVAL=0
+
+#
+start() {
+       echo -n $"Starting $prog: "
+       daemon $jimbo $OPTIONS
+       RETVAL=$?
+       echo
+       if [ $RETVAL = 0 ] ; then
+          touch /var/lock/subsys/jimbo
+       else
+          RETVAL=1
+       fi
+       return $RETVAL
+}
+
+stop() {
+       echo -n $"Stopping $prog: "
+       killproc $jimbo
+       RETVAL=$?
+       echo
+       if [ $RETVAL = 0 ] ; then
+          rm -f /var/lock/subsys/jimbo
+       else
+          RETVAL=1
+       fi
+       return $RETVAL
+}
+
+reload() {
+       echo -n $"Reloading $prog: "
+       killproc $jimbo -HUP
+       RETVAL=$?
+       echo
+}
+
+# See how we were called.
+case "$1" in
+ start)
+       start
+       ;;
+ stop)
+       stop
+       ;;
+ status)
+       status $jimbo
+       RETVAL=$?
+       ;;
+ restart)
+       stop
+       start
+       ;;
+ condrestart)
+       [ -f /var/lock/subsys/jimbo ] && restart
+       ;;
+ *)
+       echo $"Usage: $prog {start|stop|restart|status|condrestart}"
+       exit 1
+esac
+
+exit $RETVAL
+

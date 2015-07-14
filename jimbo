@@ -1,0 +1,37 @@
+#! /bin/sh
+# Python daemon starter script for JIMBO
+# based on skeleton from Debian GNU/Linux
+# cliechti@gmx.net
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/local/sbin/jimbo.py
+NAME=jimbo
+DESC="JIMBO (Jabber Instant Monitoring BOt)"
+
+test -f $DAEMON || exit 0
+
+set -e
+
+case "$1" in
+  start)
+    echo -n "Starting $DESC: "
+    start-stop-daemon --start --quiet --pidfile /var/run/$NAME.pid \
+        --exec $DAEMON
+    echo "$NAME."
+    ;;
+  stop)
+    echo -n "Stopping $DESC: "
+    start-stop-daemon --stop --quiet --pidfile /var/run/$NAME.pid
+    # \ --exec $DAEMON
+    echo "$NAME."
+    ;;
+  *)
+    N=/etc/init.d/$NAME
+    echo "Usage: $N {start|stop}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0
+
+
