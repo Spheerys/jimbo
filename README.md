@@ -69,6 +69,7 @@ If it gets disconnected it will try and re-connect automatically every five seco
 AFTER A GIT PULL
 ----------------
 You have to recreate the links to the modified files.
+
 Example for jimbo.py, from your base directory :
 ```
 git pull
