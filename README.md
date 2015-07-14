@@ -45,9 +45,9 @@ On most other Linux distributions you need to create two symlinks:
 RUNNING
 -------
 
-Start it: sudo /etc/init.d/jimbo start
-Stop it: sudo /etc/init.d/jimbo stop
- 
+- Start it: sudo /etc/init.d/jimbo start
+- Stop it: sudo /etc/init.d/jimbo stop
+
 It it doesn't look right, check the log file /var/log/jimbo.log
 
 When JIMBo starts up, it will ask to be your friend by subscribing to CONTACT. There is no real point to this, except usually your Jabber client will ask if you want to reciprocate, saving you from having to enter JIMBo's details as a contact. It also gives the impression that the machine is watching you. I'm not saying it isn't.
