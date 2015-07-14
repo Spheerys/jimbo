@@ -91,7 +91,7 @@ class Jimbo(xmpp.Client):
         running = ps_output.split('\n')
 
         check_result = ['Process status:']
-        important_processes = ['apache2', 'mysqld', 'memcached', 'prosody']
+        important_processes = ['apache2', 'mysqld', 'postfix', 'proftpd']
         has_error = False
         for process_name in important_processes:
             if process_name in running:
