@@ -23,12 +23,13 @@ INSTALLING
 
 After a git clone somewhere on your server, run the following:
 ```
-sudo ln -s jimbo_config.py /usr/local/sbin/jimbo_config.py
-sudo ln -s jimbo.py /usr/local/sbin/jimbo.py
-sudo ln -s pyDaemon.py /usr/local/sbin/pyDaemon.py
 sudo chmod u+x jimbo.py
+sudo chmod u+x jimbo
+sudo ln jimbo_config.py /usr/local/sbin/jimbo_config.py
+sudo ln jimbo.py /usr/local/sbin/jimbo.py
+sudo ln pyDaemon.py /usr/local/sbin/pyDaemon.py
 
-sudo ln -s jimbo /etc/init.d/jimbo
+sudo ln jimbo /etc/init.d/jimbo
 ```
 You then need to make sure the init script gets runs when your server starts and stop.
 
